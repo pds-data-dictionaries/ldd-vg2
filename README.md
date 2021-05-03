@@ -1,57 +1,34 @@
-# {LDD Name} Local Data Dictionary (LDD)
+# Voyager-2 Local Data Dictionary (LDD)
 
-The {LDD Name} dictionary [enter description here]
+The Voyager-2 Mission dictionary contains classes that describe attributes of the Voyager 2 mission. 
+## Versions
 
-LDD Steward: [enter steward node here]
+- [1.0.0.0](src/1.0.0.0)
+- [1.0.0.1](src/1.0.0.1)
 
-## Releases
+## Builds
 
-![LDD Automation with PDSEN CI Bot](https://github.com/pds-data-dictionaries/ldd-template/workflows/LDD%20Automation%20with%20PDSEN%20CI%20Bot/badge.svg) [TODO - replace with this repo badge]
+A Local Data Dictionary (LDD) is built for each version of the [PDS4 Information Model](https://pds.nasa.gov/pds4/doc/im/).
+The build process insures compatiblity of the LDD with the core information model.
 
-* **Stable Release** (the latest released LDDs) - https://pds.nasa.gov/datastandards/dictionaries/
-* **Unstable Release** (the latest working, unstable build) - See the `build/development` 
+This LDD has been built for the following versions of the PDS4 information model.
 
-# Documentation
-
-* **User Guide:** TBD
-* **Other PDS Data Dictionaries Documentation:** https://pds-data-dictionaries.github.io/
-
-## Propose Updates
-
-See the [LDD Update Process](https://pds-data-dictionaries.github.io/development/ldd-update.html)
-
-## Implement
-
-To implement changes the LDD, simply update the IngestLDD under the `src/` directory, commit to a branch, push the branch to Github, and create a Pull Request. The [Github Action CI/CD](https://pds-data-dictionaries.github.io/development/ldd-build.html) will take care of the auto-generation of the schemas and schematrons.
-
-For more information see the [LDD Build Process](https://pds-data-dictionaries.github.io/development/ldd-build.html)
-
+- [1.9.0.0](build/1.9.0.0)
+	- Package: [v1.9.0.0](https://github.com/nasa-pds/ldd-wave/releases/tag/v1.9.0.0)
+	
 ## Notes
 
-Each build is auto-generated using Github Actions, PDS4 LDDTool, and Validate Tool.
+Each build is generating using the [lddtool](https://pds.nasa.gov/pds4/software/ldd/) specific to a version of the [PDS4 Information Model](https://pds.nasa.gov/pds4/doc/im/). The build command used is:
 
-
-You can manually run [LDDTool](https://nasa-pds.github.io/pds4-information-model/model-lddtool/index.html) on the IngestLDD using the following command:
 ```
-lddtool -lpsnJ src/MY_IngestLDD.xml
+lddtool -lpJM ldd-file.xml
 ```
 
-# Contribute
+Documentation included in the source (src) directory is generated using the "pds-ldd-doc" tool in the [pds4-tools](https://github.com/nasa-pds/pds4-tools) package. The build command used is:
 
-* Have a bug or feature request? Create one in the [PDS4 Issue Repo](https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues/new/choose).
+```
+pds-ldd-doc ldd-file.xml > README.md
+```
 
+After a build the README.md files are updated (manually) to reflect the content of repository.
 
-# Support
-
-See the [PDS Data Dictionaries Support page](https://pds-data-dictionaries.github.io/support/) for more Support information.
-
-
-
-# Contribute
-
-Have a bug or feature request? Create one in the [PDS4 Issue Repo](https://github.com/pds-data-dictionaries/PDS4-LDD-Issue-Repo/issues/new/choose).
-
-
-# Support
-
-See the [PDS Data Dictionaries Support page](https://pds-data-dictionaries.github.io/support/contribute.html) for more Support information.
